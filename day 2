@@ -3,6 +3,7 @@ Explanation of CTF Advent of Cyber2023 tryhackme solutions   ***    Explanation 
 
 
                           day2 * Log Analysis *
+                           instagram @linuxqueenn
 ----------------------------------------------------------------------------
 Log files are files that contain historical records of events and other data from an applicationملفات السجل هي ملفات تحتوي على سجلات تاريخية للأحداث وبيانات أخرى من أحد التطبيقات
 ----------------------------------------------------------------------------
@@ -55,3 +56,4 @@ man grep to show more !
 
 6_Look through the log files for the flag. The format of the flag is: THM{} THM{STOLENSANTASLIST} write grep -i "THM" SSHD.log
 ----------------------------------------------------------------------------
+ instagram @linuxqueenn
