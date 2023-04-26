@@ -1,0 +1,43 @@
+                          * Brute-Forcing *
+                   --------------------------------
+                   instagram @linuxqueenn
+manage a computer system that is physically in a different place? The computer might be in a separate room, building, or country. The need for remote administration of computer systems led to the development of various software packages and protocolsإدارة نظام كمبيوتر موجود فعليًا في مكان مختلف؟ قد يكون الكمبيوتر في غرفة أو مبنى أو دولة منفصلة. أدت الحاجة إلى الإدارة عن بعد لأنظمة الكمبيوتر إلى تطوير حزم البرامج والبروتوكولات المختلفة ,SSH ,RDP,VNC
+----------------------------------------------------------------------------
+(SSH) stands for Secure Shell It was initially used in Unix-like systems for remote login It provides the user with a command-line interface (CLI) that can be used to execute commands عني Secure Shellتم استخدامه مبدئيًا في أنظمة تشبه Unix لتسجيل الدخول عن بُعد يوفر للمستخدم واجهة سطر أوامر (CLI) يمكن استخدامها لتنفيذ الأوامر
+
+RDP stands for Remote Desktop Protocol; it is also known as Remote Desktop Connectionتعني بروتوكول سطح المكتب البعيد ؛ يُعرف أيضًا باسم اتصال سطح المكتب البعيد
+
+VNC stands for Virtual Network Computing. It provides access to a graphical interface which allows the user to view the desktop and (optionally) control the mouse and keyboardتعني حوسبة الشبكة الافتراضية. يوفر الوصول إلى واجهة رسومية تتيح للمستخدم عرض سطح المكتب و (اختياريًا) التحكم في الماوس ولوحة المفاتيح
+----------------------------------------------------------------------------
+Authentication(المصادقة)
+refers to the process where a system validates your identity. The process starts with the user claiming a specific unique identityتشير المصادقة إلى العملية التي يتحقق فيها النظام من هويتك. تبدأ العملية بمطالبة المستخدم بهوية فريدة محددة ، مثل الادعاء بأنه مالك اسم مستخدم معين
+----------------------------------------------------------------------------The following are some of the ways used in attacks against passwordsفيما يلي بعض الطرق المستخدمة في الهجمات ضد كلمات المرور:
+
+(Shoulder Surfing(تصفح الكتف)): Looking over the victim’s shoulder might reveal the pattern they use to unlock their phone or the PIN code to use the ATM
+----------------------------------------------------------------------------answers:
+
+1-  Use Hydra to find the VNC password of the target with IP address MACHINE_IP. What is the password ? write the first nmap -sS ip to see what port we need and then write "hydra -P /usr/share/wordlists/rockyou.txt vnc://ip -V -f -t4 (1q2w3e4r)
+
+2- Using a VNC client on the AttackBox, connect to the target of IP address MACHINE_IP. What is the flag written on the target’s screen ? open remenia and enter the password and see what clientn thm{i_see_your_screen}
+                          * Brute-Forcing *
+                   --------------------------------
+manage a computer system that is physically in a different place? The computer might be in a separate room, building, or country. The need for remote administration of computer systems led to the development of various software packages and protocolsإدارة نظام كمبيوتر موجود فعليًا في مكان مختلف؟ قد يكون الكمبيوتر في غرفة أو مبنى أو دولة منفصلة. أدت الحاجة إلى الإدارة عن بعد لأنظمة الكمبيوتر إلى تطوير حزم البرامج والبروتوكولات المختلفة ,SSH ,RDP,VNC
+----------------------------------------------------------------------------
+(SSH) stands for Secure Shell It was initially used in Unix-like systems for remote login It provides the user with a command-line interface (CLI) that can be used to execute commands عني Secure Shellتم استخدامه مبدئيًا في أنظمة تشبه Unix لتسجيل الدخول عن بُعد يوفر للمستخدم واجهة سطر أوامر (CLI) يمكن استخدامها لتنفيذ الأوامر
+
+RDP stands for Remote Desktop Protocol; it is also known as Remote Desktop Connectionتعني بروتوكول سطح المكتب البعيد ؛ يُعرف أيضًا باسم اتصال سطح المكتب البعيد
+
+VNC stands for Virtual Network Computing. It provides access to a graphical interface which allows the user to view the desktop and (optionally) control the mouse and keyboardتعني حوسبة الشبكة الافتراضية. يوفر الوصول إلى واجهة رسومية تتيح للمستخدم عرض سطح المكتب و (اختياريًا) التحكم في الماوس ولوحة المفاتيح
+----------------------------------------------------------------------------
+Authentication(المصادقة)
+refers to the process where a system validates your identity. The process starts with the user claiming a specific unique identityتشير المصادقة إلى العملية التي يتحقق فيها النظام من هويتك. تبدأ العملية بمطالبة المستخدم بهوية فريدة محددة ، مثل الادعاء بأنه مالك اسم مستخدم معين
+----------------------------------------------------------------------------The following are some of the ways used in attacks against passwordsفيما يلي بعض الطرق المستخدمة في الهجمات ضد كلمات المرور:
+
+(Shoulder Surfing(تصفح الكتف)): Looking over the victim’s shoulder might reveal the pattern they use to unlock their phone or the PIN code to use the ATM
+----------------------------------------------------------------------------answers:
+
+1-  Use Hydra to find the VNC password of the target with IP address MACHINE_IP. What is the password ? write the first nmap -sS ip to see what port we need and then write "hydra -P /usr/share/wordlists/rockyou.txt vnc://ip -V -f -t4 (1q2w3e4r)
+
+2- Using a VNC client on the AttackBox, connect to the target of IP address MACHINE_IP. What is the flag written on the target’s screen ? open remenia and enter the password and see what clientn thm{i_see_your_screen}
+------------------------------------------------------------
+instagram @linuxqueenn
