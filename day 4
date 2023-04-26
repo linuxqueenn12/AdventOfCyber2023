@@ -1,0 +1,61 @@
+# AdventOfCyber2023
+Explanation of CTF Advent of Cyber2023 tryhackme solutions   ***    Explanation and solution rights OLEVER@linuxqueenn12
+
+
+                                  * scanning *
+                                  instagram @linuxqueenn
+----------------------------------------------------------------------------
+Scanning is a set of procedures for identifying live hosts, ports, and services, discovering the operating system of the target system, and identifying vulnerabilities and threats in the network
+المسح عبارة عن مجموعة من الإجراءات لتحديد المضيفين والمنافذ والخدمات الحية ، واكتشاف نظام التشغيل للنظام المستهدف ، وتحديد نقاط الضعف والتهديدات
+--------------------------------------------------------------------------
+                            * Scanning Types * 
+Scanning is classified as either (active) or (passive)أنواع المسحيُصنف المسح على أنه نشط أو سلبي 
+based on the degree of intrusiveness to gathering information about a target system or networkبناءً على درجة التطفل على جمع المعلومات حول النظام أو الشبكة المستهدفة 
+
+Passive: This method involves scanning a network without directly interacting with the target device تتضمن هذه الطريقة فحص الشبكة دون التفاعل المباشر مع الجهاز المستهدفusually carried out through packet capture and analysis tools like Wiresharkالتقاط الحزم 
+
+Active Scanning: Active scanning is a scanning method whereby you scan individual endpoints in an IT network to retrieve more detailed information
+ المسح النشط هو طريقة مسح حيث يمكنك مسح نقاط النهاية الفردية في شبكة تكنولوجيا المعلومات 
+the active scan involves sending pacActive Scanning: Active scanning is a scanning method whereby you scan individual endpoints in an IT المسح النشط هو فحص عميق فوري يتم إجراؤه على الأهداف للحصول على معلومات مفصلة. يمكن أن تكون هذه الأهداف نقطة نهاية واحدة أو شبكة
+----------------------------------------------------------------------------
+                             * scanning ports *
+Closed Ports :The host is not listening to the specific portالمضيف لا يستمع إلى المنفذ المحدد
+
+open ports :The host actively accepts a connection on the specific portيقبل المضيف بنشاط اتصالاً على المنفذ المحدد
+
+Filtered Ports: This indicates that the port is open; however, the host is not accepting connections or accepting connections as per certain criteria like specific source IP addressيشير هذا إلى أن المنفذ مفتوح ؛ ومع ذلك ، لا يقبل المضيف الاتصالات أو يقبل الاتصالات وفقًا لمعايير معينة مثل عنوان IP الخاص بالمصدر
+----------------------------------------------------------------------------                                  * Nmap *
+Nmap is a popular tool used to carry out port scanning, discover network protocolsهي أداة شائعة تستخدم لإجراء فحص المنافذ واكتشاف بروتوكولات الشبكة
+                      ------------------------
+TCP SYN Scan: Get the list of live hosts and associated ports on theفحص TCP SYN: احصل على قائمة بالمضيفين المباشرين والمنافذ المرتبطة بها على المضيفين hosts
+
+1- Usage: nmap -sS MACHINE_IP
+          nmap -sV MACHINE_IP
+Ping Scan: Allows scanning the live hosts in the network without going deeper and checking for ports servicesيسمح بفحص المضيفين المباشرين في الشبكة دون التعمق والتحقق من خدمات المنافذ
+
+2- Usage: nmap -sn MACHINE_IP
+
+Operating System Scan: Allows scanning of the type of OS running on a live hostسمح بمسح نوع نظام التشغيل الذي يعمل على مضيف
+
+3- nmap -O MACHINE_IP
+
+Detecting Services: Get a list of running services on a live hostخدمات الكشف: احصل على قائمة بالخدمات قيد التشغيل على مضيف مباشر
+
+4- nmap -sV MACHINE_IP
+---------------------------------------------------------------------------- 
+                                  * Nikto *
+برنامج مفتوح المصدر يسمح بمسح مواقع الويب بحثًا عن نقاط الضعفopen-source software that allows scanning websites for vulnerabilities
+                     ----------------------------------
+                         nikto -host MACHINE_IP 
+                           smb://MACHINE_IP
+----------------------------------------------------------------------------
+                               * answers *
+1- What is the name of the HTTP server running on the remote host? the name beside service(Apache)
+
+2- What flag can you find after successfully accessing the Samba service? write smb and the ip and click to the admins and then enter username and password and see the flag.txt ({thm_santa_smb_server})
+
+3- What is the name of the service running on port 22 on the QA server? write namp -sV and see port 22 (ssh)
+
+4- What is the password for the username santahr? in the same location enter the userlist.txt (santa25)
+-----------------------------------------------------------------------------------------------------------------
+instagram @linuxqueenn
