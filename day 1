@@ -1,0 +1,54 @@
+# AdventOfCyber2023
+Explanation of CTF Advent of Cyber2023 tryhackme solutions   ***    Explanation and solution rights OLEVER@linuxqueenn12
+
+                      day1: * Frameworks * 
+----------------------------------------------------------------------------
+(the first open the website at the beginning of the page and complete
+Complete the puzzles with the appropriate meaning)!
+----------------------------------------------------------------------------
+the first puzzel:
+1-Research is part of my ask, finding clues in public sources(reconnaissance)استطلاع
+
+2-Simple documents I turn into malware(weaponisation)تسليح
+
+3-A pizza, parcel or payload all have me as an action in commonبيتزا أو طرد أو حمولة تجعلني جميعًا عملاً مشتركًا(delievry)توصيل 
+
+4-A con is the name of my game, tricking you into believing a false identityالخداع هو اسم لعبتي ، يخدعك للاعتقاد بهوية مزيفة(social engineering)هندسة اجتماعية 
+
+5-Weaknesses are my go-to resources; through them, I make my presence felt.نقاط الضعف هي الموارد التي أستخدمها ؛ من خلالهم ، أجعل وجودي محسوسًا(exploitation)استغلال
+
+6-I am set up to let you back into the network after you leaveأنا جاهز للسماح لك بالعودة إلى الشبكة بعد مغادرتك(persistence)إصرار
+
+7-Deletion of evidence is part of my processحذف الأدلة جزء من عمليتي (defence evasion)التهرب الدفاعي
+
+8-(command control)تحكم الاوامر
+----------------------------------------------------------------------------the second puzzel:
+
+1-I am an anchor that lets you go on an adventure and exploreأنا مرساة تسمح لك بالذهاب في مغامرة واستكشاف(pivoting)التمحور
+
+2-With me, you can locate new information to expand the attackمعي ، يمكنك تحديد موقع معلومات جديدة لتوسيع نطاق الهجوم(discovery) اكتشاف 
+
+3-Once a pawn, I became a Kingذات مرة أصبحت بيدقا ملكا(privilege escalation)التصعيد امتياز
+
+4-My payloads are triggered to infect all they come in contact withيتم تشغيل حمولاتي لإصابة كل ما يتصلون به(execution)تنفيذ 
+
+5-Passwords I collect are the keys to the mainframeكلمات المرور التي أجمعها هي مفاتيح الحاسوب المركزي(gredential access)الوصول المطلق 
+
+6-Side to side, machine to machine, we hop.من جانب إلى آخر ، ومن آلة إلى أخرى ، نقفز(lateral movement)الحركة الجانبية
+----------------------------------------------------------------------------
+the third puzzel:
+
+1- In your vault, I am in (access)الدخول
+
+2-Like a dragon, I gather all valuable loot.مثل التنين ، أجمع كل المسروقات القيمة.(collection)مجموعة
+
+3-I export gathered treasuresاقوم بتصدير الكنوزالمجمعة (exfiltration)تهريب
+
+4-With me, your reputation goes tumbling down معي سمعتك تدهور (impact)تاثير
+
+5-Goals set, goals attained. I win الأهداف المحددة ، الأهداف التي تم تحقيقها. انا فزت(objectives)اهداف 
+----------------------------------------------------------------------------
+answers:
+q1 : The Bandit Yet
+q2 : THM{IT'S A Y3T1 CHR1$TMA$}
+
