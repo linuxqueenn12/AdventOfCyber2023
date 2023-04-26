@@ -1,0 +1,112 @@
+# AdventOfCyber2023
+Explanation of CTF Advent of Cyber2023 tryhackme solutions   ***    Explanation and solution rights OLEVER@linuxqueenn12
+
+                                                   * email analysis *
+                                                   instagram @linuxqueenn 
+----------------------------------------------------------------------------
+تحليل البريد الإلكتروني هو عملية استخراج معلومات رأس البريد الإلكتروني لكشف تفاصيل ملف البريد الإلكتروني. يحتوي عنوان البريد الإلكتروني على التفاصيل الفنية للبريد الإلكتروني مثل المرسل والمستلم والمسار وعنوان المرسل والمرفقاتEmail analysis is the process of extracting the email header information to expose the email file details. The email header contains the technical details of the email like sender, recipient, path, return address and attachments
+There are two main concerns in email analysisالمخاوف الرئيسية في تحليل البريد الإلكتروني: 
+
+1-Security issues: Identifying suspicious/abnormal/malicious patterns in emailsمشكلات الأمان: التعرف على الأنماط المشبوهة / غير الطبيعية / الضارة في رسائل البريد الإلكتروني
+
+2-Performance issues: Identifying delivery and delay issues in emailsمشكلات  الاداء تحديد مشكلات التسليم والتأخير في رسائل البريد الإلكتروني  
+
+3-Social engineering: Social engineering is the psychological manipulation of people into performing or divulging information by exploiting weaknesses in human natureالهندسة الاجتماعية هي التلاعب النفسي بالناس في أداء أو إفشاء المعلومات من خلال استغلال نقاط الضعف في الطبيعة البشرية
+
+4-Phishing: Phishing is a sub-section of social engineering delivered through email to trick someone into either revealing personal information and credentials التصيد الاحتيالي: التصيد الاحتيالي هو قسم فرعي من الهندسة الاجتماعية يتم تسليمه عبر البريد الإلكتروني لخداع شخص ما للكشف عن المعلومات الشخصية وبيانات الاعتماد
+----------------------------------------------------------------------------
+Does the Email Analysis Still Matter?
+Yes! Various academic research and technical reports highlight that phishing attacks are still extremely commonعم! تسلط العديد من الأبحاث الأكاديمية والتقارير الفنية الضوء على أن هجمات التصيد الاحتيالي لا تزال شائعة للغاية وفعالة ويصعب اكتشافها. وهو أيضًا جزء من اختبار الاختراق وعمليات تنفيذ الفريق الأحمر (تقييمات الأمان المدفوعة التي تفحص الأمن السيبراني التنظيمي
+----------------------------------------------------------------------------
+From (The sender's address)
+
+To (The receiver's address, including CC and BCCعنوان المستلم ، بما في ذلك)
+
+Date (Timestamp, when the email was sentالطابع الزمني ، عندما تم إرسال البريد الإلكتروني)
+
+Subject (The subject of the email)
+
+Return Path (he return address of the reply a.k.a. "Reply-To" If you reply to an email the reply will go to the address mentioned in this field)
+
+Domain Key and DKIM Signaturesمفتاح المجال وتوقيعات (Email signatures are provided by email services to identify and authenticate emails يتم توفير توقيعات البريد الإلكتروني عن طريق خدمات البريد الإلكتروني لتحديد ومصادقة رسائل البريد الإلكتروني)
+
+SPF (Shows the server that was used to send the email It will help to understand if the actual server is used to send the email from a specific domainيظهر الخادم الذي تم استخدامه لإرسال البريد الإلكتروني سيساعد ذلك في فهم ما إذا كان الخادم الفعلي يستخدم لإرسال البريد الإلكتروني من مجال معين)
+
+Message-ID (Unique ID of the emailمعرف فريد للبريد الإلكتروني)
+
+MIME-Version (It will help to understand the delivered "non-text" contents and attachmentsسيساعد ذلك على فهم المحتويات والمرفقات "غير النصية" التي تم تسليمها)
+
+X-Headers (The receiver mail providers usually add these fields
+Provided info is usually experimental and can be different according to the mail providerعادةً ما يضيف موفرو البريد المستلم هذه الحقول عادةً ما تكون المعلومات المقدمة تجريبية ويمكن أن تكون مختلفة وفقًا لموفر البريد
+
+X-Receivedتلقى( Mail servers that the email went throughخوادم البريد التي مر البريد الإلكتروني من خلالها)
+
+X-Spam Statusحالة البريد العشوائي(Spam score of the emailنقاط البريد العشوائي للبريد الإلكتروني)
+
+X-Mailer (Email client nameاسم عميل البريد الالكتروني 
+
+---------------------------------------------------------------------------- 
+                               * كيف نعرف الخطر *
+
+Do the "From", "To", and "CC" fields contain valid addresses?هل تحتوي الحقول "من" و "إلى" و "نسخة إلى" على عناوين صالحة؟
+
+Are the "From" and "To" fields the same?هل حقلا "من" و "إلى" متماثلان؟
+
+Was the email sent from the correct server?هل تم إرسال البريد الإلكتروني من الخادم الصحيح؟
+
+Does the "Message-ID" field exist, and is it valid?هل حقل "مُعرّف الرسالة" موجود ، وهل هو صالح؟
+
+Do the hyperlinks redirect to suspicious abnormal sites?هل الروابط التشعبية تعيد التوجيه إلى مواقع مشبوهة غير طبيعية؟
+
+Do the attachments consist of or contain malware?هل المرفقات تتكون من برامج ضارة أم تحتوي عليها؟
+
+we will use the "emlAnalyzer" tool to view the body of the email and analyse the attachments. The emlAnalyzer is a tool designed to parse email headers for a better view سوف نستخدم أداة "emlAnalyzer"لعرض نص البريد الإلكتروني وتحليل المرفقات emlAnalyzer هي أداة مصممة لتحليل رؤوس البريد الإلكتروني للحصول على عرض وتحليل أفضل
+------------------------------------------------------------------------------i // File to analyse -i/path-to-file/filename Remember, you can either give a full file path or navigate to the required folder using the "cd" command
+
+--header // show header اظهار الراس 
+
+-u // show URLs اظهار الروابط
+
+-text // show cleartext data اظهار بيانات النص 
+
+-extract-all // extract all attachments استخراج كافة المرفقات
+----------------------------------------------------------------------------
+tools :
+
+(VirusTotal) A service that provides a cloud-based detection toolset and sandbox environmentخدمة توفر مجموعة أدوات الكشف المستندة إلى مجموعة النظراء وبيئة وضع الحماية
+
+(InQuest) A service provides network and file analysis by using threat analyticsتوفر خدمة تحليل الشبكة والملف باستخدام تحليلات التهديدات
+
+(IPinfo.io) A service that provides detailed information about an IP address by focusing on geolocation data and service provider خدمة توفر معلومات مفصلة حول عنوان IP من خلال التركيز على بيانات تحديد الموقع الجغرافي ومزود الخدمة
+
+امر echo يطلع لنا حقيقة الكود او الكلام المخفي !
+----------------------------------------------------------------------------                               * answers *
+
+1- What is the email address of the sender ? open the file and see from who (chief.elf@santaclaus.thm)
+
+2- What is the return address?also on box (murphy.evident@bandityeti.thm)
+
+3- On whose behalf was the email sent (نيابة عن)? chief elf
+
+4- What is the X-spam score ? you can see it (3)
+
+5- What is hidden in the value of the Message-ID field? write echo and the message-ID from the email and write | base64 -d (AoC2022_Email_Analysis)
+
+6- Visit the email reputation check website provided in the task موقع التحقق من سمعة البريد الإلكتروني What is the reputation result of the sender's email address ? go to https://emailrep.io/ and write email (to) and the result is (risky)
+
+7- Check the attachments.
+What is the filename of the attachment? open the tool emlAnalyzer and write the file name and --extract to show the attachments(division_of_labour-loud_share_plan.doc)
+ 
+8- What is the hash value of the attachment?0827bb9a2e7c0628b82256759f0f888ca1abd6a2d903acdb8e44aca6a1a03467
+
+9- Visit the Virus Total website and use the hash value to search.
+Navigate to the behaviour sectionقم بزيارة موقع Virus Total على الويب واستخدم قيمة التجزئة للبحث.انتقل إلى قسم السلوكما  التكتيك الثاني المحدد في قسم Mitre ATT & CK
+What is the second tactic marked in the Mitre ATT&CK section? Defense Evasion
+
+10- Visit the InQuest website and use the hash value to search
+What is the subcategory of the fileقم بزيارة موقع InQuest واستخدم قيمة التجزئة للبحث.
+ما هي الفئة الفرعية للملف؟? macro_hunter
+----------------------------------------------------------------------------------------------
+instagram @linuxqueenn 
+
+
