@@ -1,0 +1,57 @@
+# AdventOfCyber2023
+Explanation of CTF Advent of Cyber2023 tryhackme solutions   ***    Explanation and solution rights OLEVER@linuxqueenn12
+
+
+                          day2 * Log Analysis *
+----------------------------------------------------------------------------
+Log files are files that contain historical records of events and other data from an applicationملفات السجل هي ملفات تحتوي على سجلات تاريخية للأحداث وبيانات أخرى من أحد التطبيقات
+----------------------------------------------------------------------------
+** common examples of events that you may find in a log file:
+
+1-Login attempts or failures Traffic on a network Things (website URLs, files) that have been accessed  محاولات تسجيل الدخول أو الفشل حركة المرور على الشبكة
+    الأشياء (عناوين URL الخاصة بالمواقع الإلكترونية)
+2-Password changes Application errors and more  Application errors  تغيير كلمة المرور أخطاء التطبيق والعديد والعديد من الأعراف أخطاء التطبيق ----------------------------------------------------------------------------
+Log files come :
+* A timestamp of the event (I.e. Date & Time)الطابع الزمني للحدث (أي التاريخ والوقت)
+
+*The name of the service that is generating the logfile (I.e. SSH is a remote device management protocol that allows a user to login into a system remotely)اسم الخدمة التي تنشئ ملف السجل (أي SSH هو بروتوكول إدارة جهاز عن بُعد يسمح للمستخدم بتسجيل الدخول إلى النظام عن بُعد)
+
+*The actual event the service logs (i.e., in the event of a failed authentication, what credentials were tried, and by whom? (IP address)لحدث الفعلي الذي تسجله الخدمة (على سبيل المثال ، في حالة فشل المصادقة ، ما هي بيانات الاعتماد التي تمت تجربتها ومن قبل من؟ (عنوان IP)
+----------------------------------------------------------------------------
+this command to show log files : /var/log/ls -lah 
+
+some important log filesاهم ملفات السجل :
+
+1-Authentication(المصادقة) This log file contains all authentication (log in). This is usually attempted either remotely or on the system itself (i.e., accessing another user after logging in)يحتوي ملف السجل هذا على كافة المصادقة (تسجيل الدخول). تتم محاولة ذلك عادةً إما عن بُعد أو على النظام نفسه (أي ، الوصول إلى مستخدم آخر بعد تسجيل الدخول)  auth.log	Failed password for root from 192.168.1.35 port 22 ssh2 ----------------------------------------------------------------------------
+2-Package Management(ادارة الحزم) This log file contains all events related to package management on the system. When installing a new software (a package), this is logged in this file. This is useful for debugging or reverting changes in case this installation causes unintended behaviour on the system يحتوي ملف السجل هذا على جميع الأحداث المتعلقة بإدارة الحزم على النظام. عند تثبيت برنامج جديد (حزمة) ، يتم تسجيل هذا في هذا الملف. هذا مفيد لتصحيح الأخطاء أو التراجع عن التغييرات في حالة تسبب هذا التثبيت في سلوك غير مقصود على النظاق dpkg.log 2022-06-03 21:45:59 تثبيت neofetch.
+----------------------------------------------------------------------------
+3-Syslog(سجل النظام)This log file contains all events related to things happening in the system's background. For example, crontabs executing, services starting and stopping, or other automatic behaviours such as log rotation. This file can help debug problemsيحتوي ملف السجل هذا على جميع الأحداث المتعلقة بالأشياء التي تحدث في خلفية النظام. على سبيل المثال ، تنفيذ crontabs ، بدء الخدمات وإيقافها ، أو السلوكيات التلقائية الأخرى مثل تدوير السجل. يمكن أن يساعد هذا الملف في تصحيح المشاكلsyslog	2022-06-03 13:33:7 Finished Daily apt download activities..
+----------------------------------------------------------------------------
+4-Kernel(النواة)This log file contains all events related to kernel events on the system. For example, changes to the kernel, or output from devices such as networking equipment or physical devices such as USB يحتوي ملف السجل هذا على جميع الأحداث المتعلقة بأحداث kernel على النظام. على سبيل المثال ، التغييرات على kernel ، أو الإخراج من الأجهزة مثل معدات الشبكات أو الأجهزة المادية مثل USB
+----------------------------------------------------------------------------
+greb to search on log files :﻿Grep 101A blue-team elf holding a feather and notepad
+﻿(Grep) is a command dedicated to searching for a given text in a file. Grep takes a given input (a text or value) and searches the entire file for any text that matches our input. هو أمر مخصص للبحث عن نص معين في ملف. يأخذ Grep مدخلات معينة (نص أو قيمة) ويبحث في الملف بأكمله عن أي نص يطابق المدخلات الخاصة بنا
+you may want to use grep to search a log file for:
+    A name of a computer.
+    A name of a file.
+    A name of a user account.
+    An IP address.
+    A certain timestamp or date
+          ------------------------------------------------
+(-i)Perform a case insensitive search. For example, "helloworld" and "HELLOWORLD" will return the same resultsقم بإجراء بحث غير حساس لحالة الأحرف. على سبيل المثال ، سيعرض "helloworld" و "HELLOWORLD" نفس النتائج(grep -i "helloworld" log.txt)
+(-E)Searches using regex (regular expressions). For example, we can search for lines that contain either "thm" or "tryhackme"عمليات البحث باستخدام regex (التعبيرات العادية). على سبيل المثال ، يمكننا البحث عن السطور التي تحتوي على "thm" أو "tryhackme"(grep -E "thm|tryhackme" log.txt)
+(-r)Search recursively. For example, search all of the files in a directory for this value.البحث بشكل متكرر. على سبيل المثال ، ابحث في جميع الملفات في دليل عن هذه القيمة.grep -r "helloworld" mydirectory
+man grep to show more !
+---------------------------------------------------------------------------- answer:
+1-Use the ls command to list the files present in the current directory. How many log files are present? write ls only(2) 
+
+2-Elf McSkidy managed to capture the logs generated by the web server. What is the name of this log file? shown in the files(webserver.log)
+
+3-On what day was Santa's naughty and nice list stolen?(friday)
+
+4- What is the IP address of the attacker? write ls and then write cat webserver.log(10.10.249.191)
+
+5-What is the name of the important list that the attacker stole from Santa?write grep -i "santa" webserver.log (santaslist.txt)
+
+6_Look through the log files for the flag. The format of the flag is: THM{} THM{STOLENSANTASLIST} write grep -i "THM" SSHD.log
+----------------------------------------------------------------------------
